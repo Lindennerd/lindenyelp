@@ -1,0 +1,25 @@
+{
+  "name": "lindenyelp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/run.js",
+    "dev": "nodemon ./bin/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lindennerd/lindenyelp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lindennerd/lindenyelp/issues"
+  },
+  "homepage": "https://github.com/Lindennerd/lindenyelp#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
