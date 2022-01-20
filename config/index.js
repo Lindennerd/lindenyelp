@@ -8,10 +8,12 @@ const getLogger = (serviceName, serviceVersion, level) => bunyan.createLogger({ 
 module.exports = {
     development: {
         secret: 'dev-key',
+        serviceRegistry: 'http://localhost:3000',
         log: () => getLogger(name, version, 'debug')
     },
     production: {
         secret: 'prd-key',
+        serviceRegistry: 'http://localhost:3000',
         log: () => getLogger(name, version, 'info')
     }
 };
