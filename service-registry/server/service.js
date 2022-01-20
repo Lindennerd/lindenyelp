@@ -14,14 +14,14 @@ module.exports = (config) => {
     });
   }
 
-  service.put('/register/:servicename/:serviceversion/:serviceport', (req, res) => {
-    const { servicename, serviceversion, serviceport } = req.params;
+  service.put('/register/:servicename/:serviceversion/:serviceport/:authrequired', (req, res) => {
+    const { servicename, serviceversion, serviceport, authrequired } = req.params;
 
     const serviceip = req.connection.remoteAddress.includes('::')
       ? `[${req.connection.remoteAddress}]` : req.connection.remoteAddress;
 
     const serviceKey = serviceRegistry
-      .register(servicename, serviceversion, serviceip, serviceport);
+      .register(servicename, serviceversion, serviceip, serviceport, authrequired);
     return res.json({ result: serviceKey });
   });
 

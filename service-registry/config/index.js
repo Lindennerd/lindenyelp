@@ -1,4 +1,5 @@
 const bunyan = require('bunyan');
+const { join, dirname } = require('path');
 // Load package.json
 const pjs = require('../package.json');
 
@@ -14,18 +15,21 @@ module.exports = {
     name,
     version,
     serviceTimeout: 30,
+    servicesStore: join(__dirname, 'store.json'),
     log: () => getLogger(name, version, 'debug'),
   },
   production: {
     name,
     version,
     serviceTimeout: 30,
+    servicesStore: join(__dirname, 'store.json'),
     log: () => getLogger(name, version, 'info'),
   },
   test: {
     name,
     version,
     serviceTimeout: 30,
+    servicesStore: '',
     log: () => getLogger(name, version, 'fatal'),
   },
 };

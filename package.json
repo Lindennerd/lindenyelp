@@ -21,5 +21,8 @@
   "homepage": "https://github.com/Lindennerd/lindenyelp#readme",
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "bunyan": "^1.8.15"
   }
 }

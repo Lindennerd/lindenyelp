@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 const axios = require('axios');
 const http = require('http');
-
 const pjs = require('../package.json');
 
 module.exports = (config) => {
+
   const log = config.log();
-
-  const { name, version } = pjs;
-
   const service = require('../server/service')(config);
   const server = http.createServer(service);
   server.listen(0);
+
+  const { name, version } = pjs;
 
   server.on('listening', () => {
     const registerService = () => axios.put(`http://localhost:3000/register/${name}/${version}/${server.address().port}/${true}`);

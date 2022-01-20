@@ -15,7 +15,7 @@ class ServiceRegistry {
     return candidates[Math.floor(Math.random() * candidates.length)];
   }
 
-  register(name, version, ip, port) {
+  register(name, version, ip, port, authrequired) {
     this.cleanup();
     const key = name + version + ip + port;
 
@@ -26,6 +26,7 @@ class ServiceRegistry {
       this.services[key].port = port;
       this.services[key].name = name;
       this.services[key].version = version;
+      this.services[key].authrequired = authrequired;
       this.log.debug(`Added services ${name}, version ${version} at ${ip}:${port}`);
       return key;
     }
